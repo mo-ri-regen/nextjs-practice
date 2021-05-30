@@ -8,7 +8,7 @@ import React from 'react'
 
 export default function Home() {
 
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState<number>(0);
 
   const CountUp = () =>{
     setCount(count+1);
