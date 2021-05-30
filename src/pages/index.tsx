@@ -13,6 +13,11 @@ export default function Home() {
   const CountUp = () =>{
     setCount(count+1);
   }
+  const CountDown = () =>{
+    if(count > 0){
+      setCount(count-1);
+    }
+  }
 
   return (
     <div className={styles.container}>
@@ -29,6 +34,7 @@ export default function Home() {
         <div className={styles.grid}>
  
          <button onClick={CountUp}>カウントアップ</button>
+         <button onClick={CountDown}>カウントダウン</button>
          <div>
             {count}
           </div>
