@@ -3,6 +3,7 @@ import styles from '../../styles/Home.module.css'
 import {useState} from 'react'
 
 import {Header} from '../components/Header'
+import {Main} from '../components/Main'
 import {Footer} from '../components/Footer'
 import React from 'react'
 
@@ -28,17 +29,8 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-      
         <Header />
-
-        <div className={styles.grid}>
- 
-         <button onClick={CountUp}>カウントアップ</button>
-         <button onClick={CountDown}>カウントダウン</button>
-         <div>
-            {count}
-          </div>
-        </div>
+        <Main count={count} CountUp={CountUp} CountDown={CountDown}/>       
       </main>
 
       <Footer />
