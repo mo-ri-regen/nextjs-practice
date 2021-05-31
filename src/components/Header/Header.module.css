@@ -24,3 +24,9 @@
   line-height: 1.5;
   font-size: 1.5rem;
 }
+
+.list li {
+  list-style: none;
+  display: inline-block;
+  margin: 10px;
+}
