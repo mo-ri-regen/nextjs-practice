@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import styles from '../../styles/Home.module.css'
-import {useState} from 'react'
+import {useState,useEffect} from 'react'
 
 import {Header} from '../components/Header'
 import {Main} from '../components/Main'
@@ -11,14 +11,21 @@ export default function Home() {
 
   const [count, setCount] = useState<number>(0);
 
-  const CountUp = () =>{
+  const handleCountUp = () =>{
     setCount(count+1);
   }
-  const CountDown = () =>{
+  const handleCountDown = () =>{
     if(count > 0){
       setCount(count-1);
     }
   }
+
+  useEffect(() => {
+    document.body.style.backgroundColor='aqua'
+    return () => {
+      document.body.style.backgroundColor=''
+    }
+  }, [])
 
   return (
     <div className={styles.container}>
@@ -30,7 +37,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <Header />
-        <Main count={count} CountUp={CountUp} CountDown={CountDown}/>       
+        <Main count={count} CountUp={handleCountUp} CountDown={handleCountDown}/>       
       </main>
 
       <Footer />
