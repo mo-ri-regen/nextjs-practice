@@ -36,7 +36,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <Header />
+        <Header page={"index"}/>
         <Main count={count} CountUp={handleCountUp} CountDown={handleCountDown}/>       
       </main>
 
