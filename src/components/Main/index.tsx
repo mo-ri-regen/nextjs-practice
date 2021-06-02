@@ -10,7 +10,6 @@ export const Main = (props) =>{
         {props.count}
       </div>
       <textarea rows={1} onChange={props.onChangeText}>{props.text}</textarea>
-      
      </div>
   );
 }
