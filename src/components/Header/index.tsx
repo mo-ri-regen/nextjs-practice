@@ -1,7 +1,7 @@
 import styles from './Header.module.css'
 import Link from 'next/link'
 
-export const Header = () =>{
+export const Header = (props) =>{
   return(
     <div>
       <h1 className={styles.title}>
@@ -10,7 +10,7 @@ export const Header = () =>{
 
       <p className={styles.description}>
         Get started by editing{' '}
-        <code className={styles.code}>pages/index.js</code>
+        <code className={styles.code}>pages/{props.page}.tsx</code>
       </p>
       <div className={styles.list}>
         <li>

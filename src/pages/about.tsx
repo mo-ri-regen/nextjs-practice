@@ -20,7 +20,7 @@ export default function About() {
   return(
     <div>
       <main>
-        <Header />
+        <Header page={"about"}/>
         <Main count={count} CountUp={handleCountUp} CountDown={handleCountDown}/>
       </main>
       <Footer />
