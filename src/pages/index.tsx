@@ -10,6 +10,7 @@ import React from 'react'
 export default function Home() {
 
   const [count, setCount] = useState<number>(0);
+  const [text, setText] = useState('');
 
   const handleCountUp = () =>{
     setCount(count+1);
@@ -18,6 +19,9 @@ export default function Home() {
     if(count > 0){
       setCount(count-1);
     }
+  }
+  const onChangeText = (e) => {
+    setText(e.target.value);
   }
 
   useEffect(() => {
@@ -37,7 +41,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <Header page={"index"}/>
-        <Main count={count} CountUp={handleCountUp} CountDown={handleCountDown}/>       
+        <Main count={count} CountUp={handleCountUp} CountDown={handleCountDown} text={text} onChangeText={onChangeText}/>       
       </main>
 
       <Footer />
