@@ -23,7 +23,13 @@ export const Main = (props) =>{
       </div>
       <textarea rows={1} onChange={props.onChangeText}>{props.text}</textarea>
       <button onClick={props.handleText}>追加</button>
- 
+      {props.list.map((text) => {
+          return(
+            <>     
+             <li>{text}</li>
+            </>
+          );
+        })}    
       {/* {props.list.map((text) => {
           <li>{text}</li>
       })}   */}
