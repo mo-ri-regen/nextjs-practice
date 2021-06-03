@@ -11,6 +11,7 @@ export default function Home() {
 
   const [count, setCount] = useState<number>(0);
   const [text, setText] = useState('');
+  const [list, setList] = useState([]);
 
   const handleCountUp = () =>{
     setCount(count+1);
@@ -23,7 +24,11 @@ export default function Home() {
   const onChangeText = (e) => {
     setText(e.target.value);
   }
-
+  // テキストリスト形式で追加
+  const handleText = () =>{
+    const newText:string[] = [...list, text];
+    setList(newText);
+  }
   useEffect(() => {
     document.body.style.backgroundColor='aqua'
     return () => {
@@ -39,9 +44,19 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <Header page={"index"}/>
       <main className={styles.main}>
-        <Header page={"index"}/>
-        <Main count={count} CountUp={handleCountUp} CountDown={handleCountDown} text={text} onChangeText={onChangeText}/>       
+        
+        <Main count={count} CountUp={handleCountUp} CountDown={handleCountDown} text={text} onChangeText={onChangeText} list={list} handleText={handleText}/>
+        {console.log(list)}
+        {/* <li>{list}</li> */}
+        {list.map((text) => {
+          return(
+            <>     
+             <li>{text}</li>
+            </>
+          );
+        })}     
       </main>
 
       <Footer />

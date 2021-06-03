@@ -17,6 +17,9 @@
   align-items: center;
 }
 
+.main li {
+  list-style: none;
+}
 .footer a {
   display: flex;
   justify-content: center;
