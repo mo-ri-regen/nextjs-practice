@@ -48,8 +48,6 @@ export default function Home() {
       <main className={styles.main}>
         
         <Main count={count} CountUp={handleCountUp} CountDown={handleCountDown} text={text} onChangeText={onChangeText} list={list} handleText={handleText}/>
-        {console.log(list)}
-        {/* <li>{list}</li> */}
         {list.map((text) => {
           return(
             <>     
