@@ -5,7 +5,7 @@ export const Header = (props) =>{
   return(
     <div>
       <h1 className={styles.title}>
-        Welcome to <a href="https://nextjs.org">Next.js!</a>
+        Learn Next.js!
       </h1>
 
       <p className={styles.description}>
