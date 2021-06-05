@@ -18,9 +18,11 @@ export const Main = (props) => {
       <button onClick={props.CountUp}>カウントアップ</button>
       <button onClick={props.CountDown}>カウントダウン</button>
       <div>{props.count}</div>
-      <textarea rows={1} onChange={props.onChangeText}>
-        {props.text}
-      </textarea>
+      <input
+        type="text"
+        value={props.text}
+        onChange={props.onChangeText}
+      ></input>
       <button onClick={props.handleText}>追加</button>
       {props.list.map((text) => {
         return (
