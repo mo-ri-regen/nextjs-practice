@@ -2,6 +2,8 @@ import styles from "./Main.module.css";
 
 import { useState } from "react";
 
+import Button from "@material-ui/core/Button";
+
 export const Main = (props) => {
   // const [list, setList] = useState([]);
   // テキストリスト形式で追加
@@ -15,15 +17,36 @@ export const Main = (props) => {
   return (
     // <div className={styles.grid}>
     <div>
-      <button onClick={props.CountUp}>カウントアップ</button>
-      <button onClick={props.CountDown}>カウントダウン</button>
+      <Button
+        variant="contained"
+        color="primary"
+        size="small"
+        onClick={props.CountUp}
+      >
+        カウントアップ
+      </Button>
+      <Button
+        variant="contained"
+        color="primary"
+        size="small"
+        onClick={props.CountDown}
+      >
+        カウントダウン
+      </Button>
       <div>{props.count}</div>
       <input
         type="text"
         value={props.text}
         onChange={props.onChangeText}
       ></input>
-      <button onClick={props.handleText}>追加</button>
+      <Button
+        variant="contained"
+        color="primary"
+        size="small"
+        onClick={props.handleText}
+      >
+        追加
+      </Button>
       {props.list.map((text) => {
         return (
           <>
