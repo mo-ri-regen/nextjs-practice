@@ -27,6 +27,7 @@ export default function Home() {
   const handleText = () => {
     const newText: string[] = [...list, text];
     setList(newText);
+    setText("");
   };
   useEffect(() => {
     document.body.style.backgroundColor = "aqua";
