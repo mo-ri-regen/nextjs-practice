@@ -1,6 +1,6 @@
 import Head from "next/head";
 import styles from "../../styles/Home.module.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 import { Header } from "../components/Header";
 import { Main } from "../components/Main";
@@ -9,18 +9,19 @@ import React from "react";
 
 export default function Home() {
   const [count, setCount] = useState<number>(0);
-  const [text, setText] = useState("");
-  const [list, setList] = useState([]);
+  const [text, setText] = useState<string>("");
+  const [list, setList] = useState<string[]>([]);
 
-  const handleCountUp = () => {
-    setCount(count + 1);
-  };
-  const handleCountDown = () => {
-    if (count > 0) {
-      setCount(count - 1);
-    }
-  };
-  const onChangeText = (e) => {
+  const handleCountUp = useCallback(() => {
+    setCount((prevCount) => prevCount + 1);
+  }, []);
+  const handleCountDown = useCallback(() => {
+    setCount((prevCount) => {
+      return prevCount > 0 ? prevCount - 1 : 0;
+    });
+  }, []);
+
+  const onChangeText = (e: React.ChangeEvent<HTMLInputElement>) => {
     setText(e.target.value);
   };
   // テキストリスト形式で追加
