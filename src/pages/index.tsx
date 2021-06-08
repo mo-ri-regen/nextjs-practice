@@ -1,6 +1,6 @@
 import Head from "next/head";
 import styles from "../../styles/Home.module.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 import { Header } from "../components/Header";
 import { Main } from "../components/Main";
@@ -12,14 +12,15 @@ export default function Home() {
   const [text, setText] = useState("");
   const [list, setList] = useState([]);
 
-  const handleCountUp = () => {
-    setCount(count + 1);
-  };
-  const handleCountDown = () => {
-    if (count > 0) {
-      setCount(count - 1);
-    }
-  };
+  const handleCountUp = useCallback(() => {
+    setCount((prevCount) => prevCount + 1);
+  }, []);
+  const handleCountDown = useCallback(() => {
+    setCount((prevCount) => {
+      return prevCount > 0 ? prevCount - 1 : 0;
+    });
+  }, []);
+
   const onChangeText = (e) => {
     setText(e.target.value);
   };
