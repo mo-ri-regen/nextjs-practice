@@ -9,8 +9,8 @@ import React from "react";
 
 export default function Home() {
   const [count, setCount] = useState<number>(0);
-  const [text, setText] = useState("");
-  const [list, setList] = useState([]);
+  const [text, setText] = useState<string>("");
+  const [list, setList] = useState<string[]>([]);
 
   const handleCountUp = useCallback(() => {
     setCount((prevCount) => prevCount + 1);
@@ -21,7 +21,7 @@ export default function Home() {
     });
   }, []);
 
-  const onChangeText = (e) => {
+  const onChangeText = (e: React.ChangeEvent<HTMLInputElement>) => {
     setText(e.target.value);
   };
   // テキストリスト形式で追加
