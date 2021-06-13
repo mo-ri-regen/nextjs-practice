@@ -21,6 +21,11 @@ export const Header = (props) => {
             <a>About</a>
           </Link>
         </li>
+        <li>
+          <Link href={"/signin"}>
+            <a>signin</a>
+          </Link>
+        </li>
       </div>
     </div>
   );
