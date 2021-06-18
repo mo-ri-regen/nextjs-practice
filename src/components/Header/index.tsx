@@ -22,6 +22,11 @@ export const Header = (props) => {
           </Link>
         </li>
         <li>
+          <Link href={"/jsonserver"}>
+            <a>jsonserver</a>
+          </Link>
+        </li>
+        <li>
           <Link href={"/signin"}>
             <a>signin</a>
           </Link>
