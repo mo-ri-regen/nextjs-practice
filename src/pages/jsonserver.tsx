@@ -14,12 +14,12 @@ export default function JsonServer() {
     }
   }, []);
   const handleClick = () => {
-    console.log(posts);
+    fetchData();
   };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
 
   return (
     <div>
