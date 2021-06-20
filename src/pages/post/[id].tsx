@@ -8,7 +8,11 @@ export default function Post() {
   // return <p>Post: {pid}</p>;
   return(
     <div>
-      <Link href="/jsonserver">戻る</Link>
+      <Link href="/jsonserver">
+        <a>
+          戻る
+        </a>
+      </Link>
       Hello
     </div>
   )
