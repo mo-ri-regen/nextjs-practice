@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import Link from "next/link"
 
 export default function Post() {
   // const router = useRouter();
@@ -6,6 +7,9 @@ export default function Post() {
 
   // return <p>Post: {pid}</p>;
   return(
-    <div>Hello</div>
+    <div>
+      <Link href="/jsonserver">戻る</Link>
+      Hello
+    </div>
   )
 }
