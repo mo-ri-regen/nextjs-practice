@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useCallback, useEffect } from "react";
 import Button from "@material-ui/core/Button";
+import Link from "next/link"
 
 export default function JsonServer() {
   const [posts, setPosts] = useState([]);
@@ -14,12 +15,12 @@ export default function JsonServer() {
     }
   }, []);
   const handleClick = () => {
-    console.log(posts);
+    fetchData();
   };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
 
   return (
     <div>
@@ -31,9 +32,14 @@ export default function JsonServer() {
       >
         getdata
       </Button>
-      {posts.map((post) => {
-        return <div key={post.id}>{post.title}</div>;
-      })}
+        {posts.map((post) => {
+          return( 
+            <Link key={post.id} href={`/post/${post.id}`}>
+              <a>
+              {post.title}
+              </a>
+            </Link>);
+        })}
     </div>
   );
 }
