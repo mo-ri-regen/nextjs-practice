@@ -3,6 +3,8 @@ import { useState, useCallback, useEffect } from "react";
 import Button from "@material-ui/core/Button";
 import Link from "next/link";
 import { GetStaticProps } from "next";
+import { Header } from "../components/Header";
+import { Footer } from "../components/Footer";
 
 export default function JsonServer({ posts }) {
   // const [posts, setPosts] = useState([]);
@@ -15,9 +17,9 @@ export default function JsonServer({ posts }) {
   //     alert("error");
   //   }
   // }, []);
-  const handleClick = () => {
-    // fetchData();
-  };
+  // const handleClick = () => {
+  // fetchData();
+  // };
 
   // useEffect(() => {
   //   fetchData();
@@ -25,21 +27,26 @@ export default function JsonServer({ posts }) {
 
   return (
     <div>
-      <Button
+      <Header />
+      {/* <Button
         variant="contained"
         color="primary"
         size="small"
-        // onClick={handleClick}
+        onClick={handleClick}
       >
         getdata
-      </Button>
+      </Button> */}
       {posts.map((post) => {
         return (
-          <Link key={post.id} href={`/post/${post.id}`}>
-            <a>{post.title}</a>
-          </Link>
+          <li>
+            <Link key={post.id} href={`/post/${post.id}`}>
+              <a>title:{post.title}</a>
+            </Link>
+            <div>author:{post.author}</div>
+          </li>
         );
       })}
+      <Footer />
     </div>
   );
 }
