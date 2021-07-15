@@ -3,6 +3,8 @@ import { useState, useCallback, useEffect } from "react";
 import Button from "@material-ui/core/Button";
 import Link from "next/link";
 import { GetStaticProps } from "next";
+import { Header } from "../components/Header";
+import { Footer } from "../components/Footer";
 
 export default function JsonServer({ posts }) {
   // const [posts, setPosts] = useState([]);
@@ -25,6 +27,7 @@ export default function JsonServer({ posts }) {
 
   return (
     <div>
+      <Header />
       {/* <Button
         variant="contained"
         color="primary"
@@ -35,11 +38,15 @@ export default function JsonServer({ posts }) {
       </Button> */}
       {posts.map((post) => {
         return (
-          <Link key={post.id} href={`/post/${post.id}`}>
-            <a>{post.title}</a>
-          </Link>
+          <li>
+            <Link key={post.id} href={`/post/${post.id}`}>
+              <a>title:{post.title}</a>
+            </Link>
+            <div>author:{post.author}</div>
+          </li>
         );
       })}
+      <Footer />
     </div>
   );
 }
