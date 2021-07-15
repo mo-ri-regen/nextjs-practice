@@ -15,9 +15,9 @@ export default function JsonServer({ posts }) {
   //     alert("error");
   //   }
   // }, []);
-  const handleClick = () => {
-    // fetchData();
-  };
+  // const handleClick = () => {
+  // fetchData();
+  // };
 
   // useEffect(() => {
   //   fetchData();
@@ -25,14 +25,14 @@ export default function JsonServer({ posts }) {
 
   return (
     <div>
-      <Button
+      {/* <Button
         variant="contained"
         color="primary"
         size="small"
-        // onClick={handleClick}
+        onClick={handleClick}
       >
         getdata
-      </Button>
+      </Button> */}
       {posts.map((post) => {
         return (
           <Link key={post.id} href={`/post/${post.id}`}>
