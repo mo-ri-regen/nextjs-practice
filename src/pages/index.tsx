@@ -8,11 +8,8 @@ import { Main } from "../components/Main";
 import { Footer } from "../components/Footer";
 import React from "react";
 
-export default function Home() {
+const useCounter = () => {
   const [count, setCount] = useState<number>(0);
-  const [text, setText] = useState<string>("");
-  const [list, setList] = useState<string[]>([]);
-
   const handleCountUp = useCallback(() => {
     setCount((prevCount) => prevCount + 1);
   }, []);
@@ -21,6 +18,13 @@ export default function Home() {
       return prevCount > 0 ? prevCount - 1 : 0;
     });
   }, []);
+
+  return { count, handleCountUp, handleCountDown };
+};
+
+const useText = () => {
+  const [text, setText] = useState<string>("");
+  const [list, setList] = useState<string[]>([]);
 
   const onChangeText = (e: React.ChangeEvent<HTMLInputElement>) => {
     setText(e.target.value);
@@ -31,12 +35,23 @@ export default function Home() {
     setList(newText);
     setText("");
   };
+
+  return { text, list, onChangeText, handleText };
+};
+
+const useBackGroundColor = () => {
   useEffect(() => {
     document.body.style.backgroundColor = "aqua";
     return () => {
       document.body.style.backgroundColor = "";
     };
   }, []);
+};
+
+export default function Home() {
+  const { count, handleCountUp, handleCountDown } = useCounter();
+  const { text, list, onChangeText, handleText } = useText();
+  useBackGroundColor();
 
   return (
     <div className={styles.container}>
